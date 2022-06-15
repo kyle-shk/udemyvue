@@ -9,7 +9,7 @@
     <base-card>
       <header>
         <h2>Intersted? Reach out now!</h2>
-        <base-card link :to="contackLink">Contact</base-card>
+        <base-button link :to="contactLink">Contact</base-button>
       </header>
       <!-- nested child component -->
       <router-view></router-view>
@@ -60,3 +60,14 @@ export default {
   },
 };
 </script>
+
+<!-- 242 3:45-->
+<!-- But you learned in the routing module
+
+that by adding props true to the route config,
+
+you can ensure that this dynamic value.
+
+So the concrete value for the URL, which is then visited,
+
+is passed in as a prop of that name into that component. -->
