@@ -37,6 +37,7 @@ export default {
     };
   },
   computed: {
+    // 2
     fullName() {
       return this.selectedCoach.firstName + ' ' + this.selectedCoach.lastName;
     },
@@ -54,6 +55,7 @@ export default {
     },
   },
   created() {
+    // 1
     this.selectedCoach = this.$store.getters['coaches/coaches'].find(
       (coach) => coach.id === this.id
     );
