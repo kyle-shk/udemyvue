@@ -1,7 +1,8 @@
 <template>
-  <section>Filter</section>
   <section>
-    <CoachFilter @chage-filter="setFilters" />
+    <coach-filter @change-filter="setFilters"></coach-filter>
+  </section>
+  <section>
     <base-card>
       <div class="controls">
         <base-button mode="outline">Refresh</base-button>
@@ -26,6 +27,7 @@
 <script>
 import CoachItem from '../../components/coaches/CoachItem.vue';
 import CoachFilter from '../../components/coaches/CoachFilter.vue';
+
 export default {
   components: {
     CoachItem,
@@ -42,7 +44,7 @@ export default {
   },
   computed: {
     filteredCoaches() {
-      const coaches = this.$store.getters['coaches/coaches']; // namespacedname/getters name
+      const coaches = this.$store.getters['coaches/coaches'];
       return coaches.filter((coach) => {
         if (this.activeFilters.frontend && coach.areas.includes('frontend')) {
           return true;
