@@ -36,6 +36,7 @@ export default {
         ...this.filters,
         [inputId]: isActive,
       };
+      console.log('updatefilter: ', updatedFilters);
       this.filters = updatedFilters;
       this.$emit('change-filter', updatedFilters);
     },
