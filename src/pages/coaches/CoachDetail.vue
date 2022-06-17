@@ -11,7 +11,7 @@
         <h2>Intersted? Reach out now!</h2>
         <base-button link :to="contactLink">Contact</base-button>
       </header>
-      <!-- nested child component -->
+      <!-- nested child component(contachcoach) -->
       <router-view></router-view>
     </base-card>
   </section>
