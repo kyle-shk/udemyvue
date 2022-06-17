@@ -17,7 +17,7 @@ export default {
       }
     );
 
-    // const responseData = await response.json() -> vuex에서 처리하는부분이라 딱히 뭘 안해도될듯
+    // const responseData = await response.json() -> vuex에서 처리하는부분이라 딱히 뭘 안해도될듯, local
 
     if (!response.ok) {
       // error...
@@ -27,5 +27,33 @@ export default {
       ...coachData,
       id: userId,
     });
+  },
+
+  // firebase,local구분 , firebase
+  async loadCoaches(context) {
+    const response = await fetch(
+      `https://test-ex-674aa-default-rtdb.firebaseio.com/coaches.json`
+    ); //firebase정보
+    const responseData = await response.json();
+    console.log('data: ', responseData);
+    if (!response.ok) {
+      // ...
+    }
+
+    const coaches = [];
+
+    for (const key in responseData) {
+      const coach = {
+        id: key,
+        firstName: responseData[key].firstName,
+        lastName: responseData[key].lastName,
+        description: responseData[key].description,
+        hourlyRate: responseData[key].hourlyRate,
+        areas: responseData[key].areas,
+      };
+      coaches.push(coach);
+    }
+
+    context.commit('setCoaches', coaches);
   },
 };
