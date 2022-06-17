@@ -6,7 +6,7 @@ import requestModule from './modules/requests/index.js';
 const store = createStore({
   modules: {
     coaches: coachesModule,
-    request: requestModule,
+    requests: requestModule,
   }, //관리자인지 아닌지 확인하기위한 state
   state() {
     return {
